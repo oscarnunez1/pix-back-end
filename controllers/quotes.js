@@ -9,7 +9,8 @@ const create = async (req, res) => {
         req.user.profile,
         { $push: { quotes: quote }},
         { new: true }
-      )
+        )
+      console.log("LOGGING PROFILE", quote.author);
       quote.author = profile
       res.status(201).json(quote)
   } catch (error) {
